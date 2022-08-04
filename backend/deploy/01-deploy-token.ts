@@ -9,20 +9,20 @@ const deployToken: DeployFunction = async ({ getNamedAccounts, deployments }) =>
   const { deployer } = await getNamedAccounts();
 
 
-  log('🚀 Deploying OurToken...');
-  const ourToken = await deploy('OurToken', {
+  log('🚀 Deploying PPToken...');
+  const ppToken = await deploy('PPToken', {
     from: deployer,
     args: [INITIAL_SUPPLY],
     log: true,
     waitConfirmations: helperNetworkConfig[network.name].blockConfirmations || 1
   });
-  log('✅ OurToken deployed!');
+  log('✅ PPToken deployed!');
 
   if (
     !developmentChains.includes(network.name) &&
     process.env.ETHERSCAN_API_KEY
   ) {
-    await verify(ourToken.address, [INITIAL_SUPPLY], 'contracts/PPToken.sol:PPToken');
+    await verify(ppToken.address, [INITIAL_SUPPLY], 'contracts/PPToken.sol:PPToken');
   }
 };
 

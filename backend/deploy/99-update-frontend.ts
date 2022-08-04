@@ -15,7 +15,7 @@ const updateFrontend = async () => {
 };
 
 async function updateContractAddresses() {
-  const { address } = await deployments.get('Raffle');
+  const { address } = await deployments.get('PPToken');
   const contractAddresses = JSON.parse(fs.readFileSync(FRONTEND_ADDRESSES_FILE, 'utf-8'));
 
   const chainId = network.config.chainId;
@@ -34,9 +34,9 @@ async function updateContractAddresses() {
 }
 
 async function updateAbi() {
-  const { abi, address } = await deployments.get('Raffle');
-  const raffle = await ethers.getContractAt(abi, address);
-  fs.writeFileSync(FRONTEND_ABI_FILE, raffle.interface.format(ethers.utils.FormatTypes.json).toString());
+  const { abi, address } = await deployments.get('PPToken');
+  const ppToken = await ethers.getContractAt(abi, address);
+  fs.writeFileSync(FRONTEND_ABI_FILE, ppToken.interface.format(ethers.utils.FormatTypes.json).toString());
 }
 
 updateFrontend.tags = ['all', 'frontend'];
