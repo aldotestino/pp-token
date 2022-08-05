@@ -22,7 +22,7 @@ function Sender({ contractAddress, updateBalance }: SenderProps) {
     amount: '0.00'
   });
 
-  const { nextStep, prevStep, activeStep, reset } = useSteps({
+  const { nextStep, activeStep, reset } = useSteps({
     initialStep: 0,
   });
 
