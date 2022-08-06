@@ -1,4 +1,4 @@
-import { IconButton, Menu, MenuButton, MenuDivider, MenuItem, MenuItemOption, MenuList, MenuOptionGroup, Text, Box, useColorMode, useColorModeValue, HStack } from '@chakra-ui/react';
+import { IconButton, Menu, MenuButton, MenuDivider, MenuItem, MenuItemOption, MenuList, MenuOptionGroup, Text, Box, useColorModeValue, HStack } from '@chakra-ui/react';
 import { ColorSwatchIcon } from '@heroicons/react/solid';
 import ColorModeSwitcher from './ColorModeSwitcher';
 import { ThemeColor, useThemeColor } from '../store/themeStore';

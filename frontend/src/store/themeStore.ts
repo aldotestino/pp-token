@@ -23,7 +23,7 @@ interface ThemeColorStore {
 const useStore = create<ThemeColorStore>()(
   persist(
     (set, get) => ({
-      themeColor: ThemeColor.PINK,
+      themeColor: ThemeColor.PURPLE,
       primaryColor: (mode) => `${get().themeColor}.${mode === 'light' ? '500' : '200'}`,
       changeTheme: (_themeColor) => set({ themeColor: _themeColor }),
     }),

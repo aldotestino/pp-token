@@ -7,6 +7,7 @@ import { ethers } from 'ethers';
 import ConfirmationModal from './ConfirmationModal';
 import { useSteps } from 'chakra-ui-steps';
 import { useThemeColor } from '../store/themeStore';
+import { isTx } from '../utils/isTx';
 
 interface SenderProps {
   contractAddress: string,
@@ -49,13 +50,12 @@ function Sender({ contractAddress, updateBalance }: SenderProps) {
     }else {
       onOpen();
       await send({
-        onError: error => {
-          console.log(error);
+        onError: () => {
           onClose();
           reset();
         },
-        onSuccess: (results: {hash: string}) => {
-          setTransactionHash(results.hash);
+        onSuccess: (results) => {
+          if(isTx(results)) setTransactionHash(results.hash);
           nextStep();
         },
         onComplete: () => {

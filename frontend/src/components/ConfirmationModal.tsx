@@ -36,14 +36,14 @@ function ConfirmationModal({ isOpen, onClose, activeStep, transactionHash, reset
       <Heading fontSize="2xl">Transfering...</Heading>
       <Text color={secondaryColor} fontSize="xl">View transaction on Etherscan:</Text>
       <Link color={primaryColor(colorMode)} href={`https://rinkeby.etherscan.io/tx/${transactionHash}`} isExternal>
-        {transactionHash.slice(0, 10)}...{transactionHash.slice(transactionHash.length - 4)} <ExternalLinkIcon mx='2px' />
+        {transactionHash.slice(0, 6)}...{transactionHash.slice(transactionHash.length - 6)} <ExternalLinkIcon mx='2px' />
       </Link>
     </VStack>,
     <VStack key={2} mt={4}>
       <Heading fontSize="2xl">Transaction completed!</Heading>
       <Text color={secondaryColor} fontSize="xl">View transaction on Etherscan:</Text>
       <Link color={primaryColor(colorMode)} href={`https://rinkeby.etherscan.io/tx/${transactionHash}`} isExternal>
-        {transactionHash.slice(0, 10)}...{transactionHash.slice(transactionHash.length - 4)} <ExternalLinkIcon mx='2px' />
+        {transactionHash.slice(0, 6)}...{transactionHash.slice(transactionHash.length - 6)} <ExternalLinkIcon mx='2px' />
       </Link>
     </VStack>,
   ];
