@@ -54,19 +54,18 @@ function Sender({ contractAddress, updateBalance }: SenderProps) {
           onClose();
           reset();
         },
-        onSuccess: (results) => {
-          if(isTx(results)) setTransactionHash(results.hash);
-          nextStep();
-        },
-        onComplete: () => {
+        onSuccess: async (tx) => {
           setFormValues({
             to: '',
             amount: '0.00'
           });
-          setTimeout(() => {
-            updateBalance();
+          nextStep();
+          if(isTx(tx)) {
+            setTransactionHash(tx.hash);
+            await tx.wait(1);
+            await updateBalance();
             nextStep();
-          }, 10*1000); // wait for update
+          }
         }
       });
     }

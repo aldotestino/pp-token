@@ -1,5 +1,5 @@
-export function isTx(obj: unknown): obj is { hash: string } {
+export function isTx(obj: unknown): obj is { hash: string, wait: (blocks: number) => void } {
   return (
-    typeof obj === 'object' && obj !== null && 'hash' in obj
+    typeof obj === 'object' && obj !== null && 'hash' in obj && 'wait' in obj
   );
 }
