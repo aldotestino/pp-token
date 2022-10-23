@@ -13,6 +13,9 @@ export const helperNetworkConfig: HelperNetworkConfig = {
   },
   rinkeby: {
     blockConfirmations: 6
+  },
+  goerli: {
+    blockConfirmations: 6
   }
 };
 

@@ -18,10 +18,15 @@ const config: HardhatUserConfig = {
     localhost: {
       chainId: 31337
     },
-    rinkeby: {
-      url: process.env.RINKEBY_RPC_URL,
+    // rinkeby: {
+    //   url: process.env.RINKEBY_RPC_URL,
+    //   accounts: [process.env.PRIVATE_KEY!],
+    //   chainId: 4
+    // },
+    goerli: {
+      url: process.env.GOERLI_RPC_URL,
       accounts: [process.env.PRIVATE_KEY!],
-      chainId: 4
+      chainId: 5
     }
   },
   etherscan: {
